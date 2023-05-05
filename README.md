@@ -2,7 +2,7 @@
 
 Steps to replicate the benchmarck
 
-<b>1. Run get_data.py<\b>
+<b>1. Run get_data.py</b>
 
 To do this, change the queries in queries.py so that you get the desired outputs.
 get_data.py will create:
