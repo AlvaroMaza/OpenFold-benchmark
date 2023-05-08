@@ -46,4 +46,6 @@ The number of jobs is 1 if you don't specify it.
   <li> times.json: it has the inference and relaxation time of each protein</li>
   <li> The ouput pickles that have the pLT, pAE, pLDDT,... of each prediction</li>
   </ul>
+
+in a single dataframe.
   
