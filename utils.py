@@ -14,7 +14,7 @@ def write_csv_file(file, data, sym,seq_length):
 def create_csv_file(file):
     with open(file, 'w') as csvfile: 
         print("IDs table created")
-        csvfile.write("ID,symmetry,seq_lenght\n")
+        csvfile.write("ID,symmetry,seq_length\n")
 
 
 def write_fasta(input, folder):
