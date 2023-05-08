@@ -2,22 +2,22 @@ import os
 import shutil
 
 
-def folder_exists(name,path = "D:/data/openfold/openproteinset/pdb/%s"):
+def folder_exists(name,path):
     path = path % name
     return os.path.isdir(path)
 
-def write_csv_file(file, data):
+def write_csv_file(file, data, sym):
     with open(file, 'a') as the_file:
-        the_file.write(data+ "\n")
+        the_file.write(data + "," + sym + "\n")
             
 
 def create_csv_file(file):
     with open(file, 'w') as csvfile: 
         print("IDs table created")
-        csvfile.write("ID\n")
+        csvfile.write("ID,symmetry\n")
 
 
-def write_fasta(input, folder = 'C:/Users/alvar/Desktop/PDB/benchmark/get_ids/fasta_files'):
+def write_fasta(input, folder):
     
     if os.path.exists(folder) and os.path.isdir(folder):
         shutil.rmtree(folder)
