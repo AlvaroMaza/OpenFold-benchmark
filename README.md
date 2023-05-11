@@ -23,7 +23,6 @@ In case you don't want to work with the whole OpenProteinSet, you can filter the
 
 Select a batch size of 550 (for example) by running <code>python create_folders.py 550</code>. It is set as 20 by default.
 
-Be sure that when you execute this file, <code>batches</code> and <code>output_files</code> exist, and are empties directories
 
 <b>5. Run parallel.sh </b>
 
