@@ -107,7 +107,7 @@ ids_query = """
   polymer_entities(entity_ids: %s) {
     rcsb_id
     entity_poly{
-      pdbx_seq_one_letter_code_can
+      pdbx_seq_one_letter_code
     }
     rcsb_polymer_entity_container_identifiers {
       auth_asym_ids

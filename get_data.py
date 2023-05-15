@@ -17,8 +17,8 @@ if __name__ == "__main__":
                                      
         for poly in data:
             
-            seq_length = len(poly['entity_poly']['pdbx_seq_one_letter_code_can'])*sym[0]
-            if seq_length < max_seq and (seq_length > min_seq) and ('X' not in poly['entity_poly']['pdbx_seq_one_letter_code_can']):
+            seq_length = len(poly['entity_poly']['pdbx_seq_one_letter_code'])*sym[0]
+            if seq_length < max_seq and (seq_length > min_seq) and ('X' not in poly['entity_poly']['pdbx_seq_one_letter_code']) and ('(' not in poly['entity_poly']['pdbx_seq_one_letter_code']):
                 name = poly['rcsb_id'][:-1].lower()+poly['rcsb_polymer_entity_container_identifiers']['auth_asym_ids'][0]
 
                 if folder_exists(name,db_location):
@@ -27,7 +27,7 @@ if __name__ == "__main__":
                     write_fasta([name,
                                  poly['rcsb_id'][-1],
                                  poly['rcsb_polymer_entity_container_identifiers']['auth_asym_ids'][0],
-                                 poly['entity_poly']['pdbx_seq_one_letter_code_can'],
+                                 poly['entity_poly']['pdbx_seq_one_letter_code'],
                                  sym[0]],
                                  fasta_folder_output)
 
