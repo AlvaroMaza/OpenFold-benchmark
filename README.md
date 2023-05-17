@@ -40,6 +40,14 @@ The number of jobs is 1 if you don't specify it.
 
 <b>6. Run parse_logs.py to get the times of inference and relaxation of all predictions in a JSON format</b>
 
+
+<b>7. Run merge_batches.py to merge all the data from the batches into two single directories: </b>
+   <ul>
+  <li> output_directory_pkl </li>
+  <li> output_directory_relaxed</li>
+
+  </ul>
+  
 <b>7. Run merge_data.py to merge all the data from: </b>
   <ul>
   <li> ids.csv: it has the symmetry and sequence length of each protein </li>
