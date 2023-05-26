@@ -48,7 +48,9 @@ The number of jobs is 1 if you don't specify it.
 
   </ul>
   
-<b>7. Run merge_data.py to merge all the data from: </b>
+<b>8. Run qsalign.py to get the tsv files with the tm-score</b>
+  
+<b>9. Run merge_data.py to merge all the data from: </b>
   <ul>
   <li> ids.csv: it has the symmetry and sequence length of each protein </li>
   <li> times.json: it has the inference and relaxation time of each protein</li>
