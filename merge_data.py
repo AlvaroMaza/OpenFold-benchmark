@@ -19,7 +19,7 @@ with open('C:/Users/alvar/Desktop/PDB/times.json', 'r') as f:
 df = pd.DataFrame.from_dict(data, orient='index')
 
 #load the csv file
-df2 = pd.read_csv('C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/data.csv',
+df2 = pd.read_csv('C:/Users/alvar/Desktop/PDB/data/data.csv',
                   delimiter=',',index_col = 'ID')
 #merge both DataFrames
 result = df2.merge(df, left_index=True, right_index=True)
@@ -29,7 +29,7 @@ result['Relaxation']=pd.to_numeric(result['Relaxation'], errors='coerce')
 
 
 
-tsv_directory = "C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/qsalign"
+tsv_directory = "C:/Users/alvar/Desktop/PDB/data/qsalign"
 for subdir, _, files in os.walk(tsv_directory):
     for file in files:
         if file.endswith(".tsv"):
@@ -68,4 +68,4 @@ for subdir, _, files in os.walk(root_directory):
                 except:
                     pass
 
-result.to_pickle('result.pkl')
+

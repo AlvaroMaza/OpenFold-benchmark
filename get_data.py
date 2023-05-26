@@ -6,7 +6,7 @@ max_seq = 1600
 
 
 db_location = "D:/data/openfold/openproteinset/pdb/%s"
-fasta_folder_output = 'C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/fasta_files'
+fasta_folder_output = 'C:/Users/alvar/Desktop/PDB/data/fasta_files'
 
 if __name__ == "__main__":
     create_csv_ids("ids.csv")

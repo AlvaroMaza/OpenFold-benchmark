@@ -1,9 +1,9 @@
 import os
 import glob
 
-jar_path = "qs-align_1.2-SNAPSHOT.jar"
-cif_directory = "C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/output_directory_relaxed"
-output_directory = "C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/qsalign"
+jar_path = "C:/Users/alvar/Desktop/PDB/qs-align_1.2-SNAPSHOT.jar"
+cif_directory = "C:/Users/alvar/Desktop/PDB/data/output_directory_relaxed"
+output_directory = "C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/qsalign1"
 
 # Get a list of all CIF files in the directory
 cif_files = glob.glob(os.path.join(cif_directory, "*.cif"))
