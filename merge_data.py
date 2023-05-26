@@ -19,7 +19,7 @@ with open('C:/Users/alvar/Desktop/PDB/times.json', 'r') as f:
 df = pd.DataFrame.from_dict(data, orient='index')
 
 #load the csv file
-df2 = pd.read_csv('C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/ids_final.csv',
+df2 = pd.read_csv('C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/data.csv',
                   delimiter=',',index_col = 'ID')
 #merge both DataFrames
 result = df2.merge(df, left_index=True, right_index=True)
@@ -28,14 +28,33 @@ result['Inference']=pd.to_numeric(result['Inference'], errors='coerce')
 result['Relaxation']=pd.to_numeric(result['Relaxation'], errors='coerce')
 
 
-#Test while I don't have all the data
-result = result.rename(index={'1an8_A': '1tlt_A'})
 
+tsv_directory = "C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/qsalign"
+for subdir, _, files in os.walk(tsv_directory):
+    for file in files:
+        if file.endswith(".tsv"):
+            try:
+                file_path = os.path.join(subdir, file)
+            
+                # Read the TSV file into a DataFrame
+                tsv_df = pd.read_csv(file_path, delimiter='\t')
+            
+                # Extract the tm-score from the TSV DataFrame
+                tm_score = tsv_df['TM-score'].values[0]  # Assuming 'tm-score' is the column name
+                
+                # Update the 'result' DataFrame with the tm-score
+                result.loc[file.split('.', 1)[0], 'tm-score'] = tm_score
+            except:
+                pass
+            
 #load pickle files and add pLT,pLDDT,pAE to the DataFrame
-root_directory = "C:/Users/alvar/Desktop/PDB/predictions2"
+root_directory = "D:/output_directory_pkl"
+i=1
 for subdir, _, files in os.walk(root_directory):
     for file in files:
         if file.endswith(".pkl"):
+            print(f"Progress: {round((i/3987)*100,2)} %")
+            i+=1
             file_path = os.path.join(subdir, file)
             with open(file_path, "rb") as f:
                 name = file.split('-')[0]
@@ -48,20 +67,5 @@ for subdir, _, files in os.walk(root_directory):
                     
                 except:
                     pass
-                
-fig, ax = plt.subplots()
-ax.scatter(result['seq_length'],result['Inference'])
 
-# define the function
-def f(x):
-    return (x/100)**2.75
-
-# generate x-values
-x = np.linspace(0, 1200, 1000)
-
-# generate y-values using the function
-y = f(x)
-
-ax.plot(x,y,color='red')
-
-plt.show()
+result.to_pickle('result.pkl')
