@@ -29,7 +29,7 @@ result['Relaxation']=pd.to_numeric(result['Relaxation'], errors='coerce')
 
 
 
-tsv_directory = "C:/Users/alvar/Desktop/PDB/data/qsalign"
+tsv_directory = "C:/Users/alvar/Desktop/PDB/data/qsalign_old"
 for subdir, _, files in os.walk(tsv_directory):
     for file in files:
         if file.endswith(".tsv"):
@@ -40,10 +40,12 @@ for subdir, _, files in os.walk(tsv_directory):
                 tsv_df = pd.read_csv(file_path, delimiter='\t')
             
                 # Extract the tm-score from the TSV DataFrame
-                tm_score = tsv_df['TM-score'].values[0]  # Assuming 'tm-score' is the column name
+                tm_score = tsv_df['TM-score'].values[0] 
+                relation = tsv_df['Relation'].values[0]
                 
                 # Update the 'result' DataFrame with the tm-score
                 result.loc[file.split('.', 1)[0], 'tm-score'] = tm_score
+                result.loc[file.split('.', 1)[0], 'relation'] = relation
             except:
                 pass
             
@@ -69,3 +71,8 @@ for subdir, _, files in os.walk(root_directory):
                     pass
 
 
+pickle_file_path = 'C:/Users/alvar/Desktop/PDB/result.pkl'
+
+# Dump the result DataFrame into the pickle file
+with open(pickle_file_path, 'wb') as f:
+    pickle.dump(result, f)

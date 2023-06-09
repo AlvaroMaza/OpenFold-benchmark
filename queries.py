@@ -113,12 +113,15 @@ ids_query = """
       auth_asym_ids
       entity_id
     }
-
+    polymer_entity_instances{
+      rcsb_polymer_instance_feature_summary{
+      	type
+        coverage
+      }
+    }
   }
 }
 """
-
-
 
 def build_search_api_query(json_query):
     return search_api_prefix + urllib.parse.quote_plus(json_query)

@@ -3,7 +3,7 @@ import glob
 
 jar_path = "C:/Users/alvar/Desktop/PDB/qs-align_1.2-SNAPSHOT.jar"
 cif_directory = "C:/Users/alvar/Desktop/PDB/data/output_directory_relaxed"
-output_directory = "C:/Users/alvar/Desktop/PDB/OpenFold-benchmark/qsalign1"
+output_directory = "C:/Users/alvar/Desktop/PDB/data/qsalign"
 
 # Get a list of all CIF files in the directory
 cif_files = glob.glob(os.path.join(cif_directory, "*.cif"))
@@ -15,7 +15,7 @@ for cif_file in cif_files:
     output_file = f"{cif_filename.split('-', 1)[0]}.tsv"  # Output file name based on the CIF file name
     
     # Construct the command to execute
-    command = f"java -jar {jar_path} -t {cif_name} -q {cif_file} -o {os.path.join(output_directory, output_file)}"
+    command = f"java -jar {jar_path} -t BIO:{cif_name} -q {cif_file} -o {os.path.join(output_directory, output_file)}"
     
     # Execute the command
     os.system(command)
