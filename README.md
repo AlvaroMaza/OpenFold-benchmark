@@ -59,12 +59,26 @@ The number of jobs is 1 if you don't specify it.
 
 in a single dataframe.
 
-Where did we lose observations?
+<h3>Where did we lose observations?</h3>
 <ul>
   <li>Initial size after the queries: 6756 </li>
   <li> Error while using alphafold:
     <img src = "https://github.com/AlvaroMaza/OpenFold-benchmark/assets/80754766/a15aa54e-1605-40cf-9e96-1808e5fc0e2c">
+    <p>This made the whole batch stop, so the remaining proteins were not predicted</p>
   </li>
+  <li>Error while using qsalign: 
+    <img src = "https://github.com/AlvaroMaza/OpenFold-benchmark/assets/80754766/3c388f21-f088-4e5e-a968-5b3c305c919f">
+    This error now does not appear anymore, but 0s are introduced as a solution
+  </li>
+  <li> Only EQUIVALENT alignments in qs align are useful for the analysis (1125 out of 2828)</li>
+</ul>
+
+<h3>Future work:</h3>
+<ul>
+  <li>Modify queries to get more data</li>
+  <li>Optimize gpu usage and batch work in EXPANSE</li>
+  <li>Decide what to do with non EQUIVALENT alignments</li>
+  <li>Visualize new results</li>
 </ul>
 
 
