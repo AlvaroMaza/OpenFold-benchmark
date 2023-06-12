@@ -58,4 +58,14 @@ The number of jobs is 1 if you don't specify it.
   </ul>
 
 in a single dataframe.
+
+Where did we lose observations?
+<ul>
+  <li>Initial size after the queries: 6756 </li>
+  <li> Error while using alphafold:
+    ![image](https://github.com/AlvaroMaza/OpenFold-benchmark/assets/80754766/a15aa54e-1605-40cf-9e96-1808e5fc0e2c)
+  </li>
+</ul>
+
+
   
